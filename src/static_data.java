@@ -1,6 +1,8 @@
 package Ticket;
 
-public final class static_variable {
+public final class static_data {
+
+
 	// 종류 별 상수 선언
 	static int TICKET_TYPE = 0, DAY_TYPE = 1, DISCOUNT_TYPE = 2, PERSON_TYPE = 3, NOMAL_TICKET_QTY = 4, 
 	DISC_TICKET_QTY = 5, NORMAL_PRICE_SUM = 6, DISC_PRICE_SUM = 7, NON_DISCOUNT_TYPE = 8, SUM_PRICE = 9; 
