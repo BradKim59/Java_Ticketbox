@@ -135,6 +135,4 @@ public class input_order {
 		} while (data_variable.getTicket() != 1 && data_variable.getTicket() != 2);
 		return data_variable.getTicket();
 	}
-	
-
 }

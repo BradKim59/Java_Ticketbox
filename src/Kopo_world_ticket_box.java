@@ -8,4 +8,3 @@ public class Kopo_world_ticket_box {
 		//프로그램 종료 시 매출내역을 파일로 저장한다. 
 	}
 }
-
