@@ -1,16 +1,18 @@
-package Ticket;
+package ticketing;
 
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
-public class order_data {
+public class Order_data {
+	SimpleDateFormat df = new SimpleDateFormat("YYYYMMdd");
 	Calendar cal = Calendar.getInstance();
 
 	private int ticket;
 	private int dayTicket;
-	private int qty = 1;
+	private int qty;
 	private int advantage;
 	private int numDaDoong;
-	private int conTicket = 0;
+	private int conTicket;
 	private int disAdvantage;
 	private int generation;
 	private int discountType;
@@ -26,25 +28,40 @@ public class order_data {
 	private int date;
 	private int gender;
 	private int four_digit_year;
-	private int current_year = cal.get(Calendar.YEAR);
-	private int current_month = cal.get(Calendar.MONTH +1);
-	private int current_date = cal.get(Calendar.DATE);
-	private int lastday_M = cal.getActualMaximum(Calendar.MONTH+1);
-	private int lastday_D = cal.getActualMaximum(Calendar.DATE);
+	private int current_year;
+	private int current_month;
+	private int current_date;
+	private int lastday_M;
+	private int lastday_D;
 	private String personID;
-	private int nor_Date = 0;
-	private int lun_Date = 0;
-	
-	order_data(int price, int totalPrice, int totalDiscountPrice, int grandPrice, int num, int disNum, int disAdvantage){
-		this.price = price;
-		this.totalPrice = totalPrice;
-		this.totalDiscountPrice = totalDiscountPrice;
-		this.grandPrice = grandPrice;
-		this.num = num;
-		this.disNum = disNum;
-		this.disAdvantage = disAdvantage;
+	private int nor_Date;
+	private int lun_Date;
+	int final_count;
+	String orderdate;
+	String menu = "주문일자"+ "," +"이용권타입" + "," + "시간타입" + "," + "연령대"+ "," + "수량" + "," + "가격" + "," + "할인타입";
+	String menu_for_ticket_type = "구분"+ "," +"주간권" + "," + "야간권";
+	Order_data(){
+		this.price = 0;
+		this.totalPrice = 0;
+		this.totalDiscountPrice = 0;
+		this.grandPrice = 0;
+		this.num = 0;
+		this.disNum = 0;
+		this.disAdvantage = 1;
+		this.current_year = cal.get(Calendar.YEAR);
+		this.current_month = cal.get(Calendar.MONTH)+1;
+		this.current_date = cal.get(Calendar.DATE);
+		this.lastday_M = cal.getActualMaximum(Calendar.MONTH+1);
+		this.lastday_D = cal.getActualMaximum(Calendar.DATE);
+		this.nor_Date = 0;
+		this.lun_Date = 0;
+		this.final_count = 0;
+		this.conTicket = 0;
+		this.qty = 1;
+		this.orderdate = df.format(cal.getTime());
+; 
 	}
-
+	
 	public Calendar getCal() {
 		return cal;
 	}

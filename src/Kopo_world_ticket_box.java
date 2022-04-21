@@ -1,4 +1,4 @@
-package Ticket;
+package ticketing;
 
 public class Kopo_world_ticket_box {
 	

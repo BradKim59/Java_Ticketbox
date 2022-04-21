@@ -1,6 +1,6 @@
-package Ticket;
+package ticketing;
 
-public final class static_data {
+public final class Static_data {
 
 	// 종류 별 상수 선언
 	static int TICKET_TYPE = 0, DAY_TYPE = 1, DISCOUNT_TYPE = 2, PERSON_TYPE = 3, NOMAL_TICKET_QTY = 4, 
