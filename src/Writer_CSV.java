@@ -61,29 +61,29 @@ public class Writer_CSV {
 		}
 	}
 	
-	void make_CSV_ticket_type(String data) {//티켓 타입별로 CSV 생성
-		File csv = new File("C:\\project\\ticket_list_ticket_type.csv");
-		BufferedWriter bw = null;
+// 	void make_CSV_ticket_type(String data) {//티켓 타입별로 CSV 생성
+// 		File csv = new File("C:\\project\\ticket_list_ticket_type.csv");
+// 		BufferedWriter bw = null;
 		
-		try {
-			bw = new BufferedWriter(new FileWriter(csv, true));
-			bw.write(data);
-			bw.newLine();
-		} catch (FileNotFoundException e) {
-			e.printStackTrace();
-		} catch (IOException e) {
-			e.printStackTrace();
-		} finally {
-			try {
-				if (bw != null) {
-					bw.flush();
-					bw.close();
-				}
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
-		}
-	}
+// 		try {
+// 			bw = new BufferedWriter(new FileWriter(csv, true));
+// 			bw.write(data);
+// 			bw.newLine();
+// 		} catch (FileNotFoundException e) {
+// 			e.printStackTrace();
+// 		} catch (IOException e) {
+// 			e.printStackTrace();
+// 		} finally {
+// 			try {
+// 				if (bw != null) {
+// 					bw.flush();
+// 					bw.close();
+// 				}
+// 			} catch (IOException e) {
+// 				e.printStackTrace();
+// 			}
+// 		}
+// 	}
 	
 	String csv_total_order_discount(Order_data data_variable, ArrayList<Order_data> make_list, int roundOfOrder) {
 		String result = "";
