@@ -88,129 +88,24 @@ public class Writer_CSV {
 	String csv_total_order_discount(Order_data data_variable, ArrayList<Order_data> make_list, int roundOfOrder) {
 		String result = "";
 		// 할인 티켓 출력
-				result = (make_list.get(roundOfOrder).orderdate) + ",";
-				
-				switch (make_list.get(roundOfOrder).getTicket()) {
-				case 1:
-					result = result + "종합이용권" + ",";
-					break;
-				case 2:
-					result = result + "파크이용권" + ",";
-					break;
-				}
-				switch (make_list.get(roundOfOrder).getDayTicket()) {
-				case 1:
-					result = result + "1DAY"+",";
-					break;
-				case 2:
-					result = result + "AFTER4"+ ",";
-					break;
-				}
-				switch (make_list.get(roundOfOrder).getGeneration()) {
-				case 1:
-					result = result + "신생아"+ ",";
-					break;
-				case 2:
-					result = result + "영유아"+",";
-					break;
-				case 3:
-					result = result + "어린이" + ",";
-					break;
-				case 4:
-					result = result + "청소년" + ",";
-					break;
-				case 5:
-					result = result + "성인" + ",";
-					break;
-				case 6:
-					result = result + "만67이상" + ",";
-					break;
-				}
-				
-				result = result + make_list.get(roundOfOrder).getDisNum() + "," + make_list.get(roundOfOrder).getTotalDiscountPrice() + ",";
-
-				switch (make_list.get(roundOfOrder).getAdvantage()) {
-				case 2:
-					result = result + "장애인 우대적용";
-					break;
-				case 3:
-					result = result + "국가유공자 우대적용";
-					break;
-				case 4:
-					result = result + "휴가장병 우대적용";
-					break;
-				case 5:
-					result = result + "임산부 우대적용";
-					break;
-				case 6:
-					result = result + "다둥이 우대적용";
-					break;
-				}
+		result = (make_list.get(roundOfOrder).orderdate) + ",";
+		result = result + make_list.get(roundOfOrder).getTicketToString() + ",";
+		result = result + make_list.get(roundOfOrder).getDayTicketToString() + ",";
+		result = result + make_list.get(roundOfOrder).getGenerationToString() + ",";
+		result = result + make_list.get(roundOfOrder).getDisNum() + "," + make_list.get(roundOfOrder).getTotalDiscountPrice() + ",";
+		result = result + make_list.get(roundOfOrder).getAdvantageToString();
 		return result;
 		} 
 	String csv_total_order_nondiscount(Order_data data_variable, ArrayList<Order_data> make_list, int roundOfOrder) {
 		String result = "";
 		// 비할인 티켓 출력				
-				result = (make_list.get(roundOfOrder).orderdate) + ",";
-
-				switch (make_list.get(roundOfOrder).getTicket()) {
-				case 1:
-					result = result + "종합이용권" + ",";
-					break;
-				case 2:
-					result = result + "파크이용권" + ",";
-					break;
-				}
-				switch (make_list.get(roundOfOrder).getDayTicket()) {
-				case 1:
-					result = result + "1DAY"+",";
-					break;
-				case 2:
-					result = result + "AFTER4"+ ",";
-					break;
-				}
-				switch (make_list.get(roundOfOrder).getGeneration()) {
-				case 1:
-					result = result + "신생아"+ ",";
-					break;
-				case 2:
-					result = result + "영유아"+",";
-					break;
-				case 3:
-					result = result + "어린이" + ",";
-					break;
-				case 4:
-					result = result + "청소년" + ",";
-					break;
-				case 5:
-					result = result + "성인" + ",";
-					break;
-				case 6:
-					result = result + "만67이상" + ",";
-					break;
-				}
-				result = result + make_list.get(roundOfOrder).getNum() + "," + make_list.get(roundOfOrder).getTotalPrice() + ",";
-				
-				switch (make_list.get(roundOfOrder).getDisAdvantage()) {
-				case 1:
-					result = result + "할인 미적용";
-					break;
-				case 2:
-					result = result + "할인 미적용";
-					break;
-				case 3:
-					result = result + "할인 미적용";
-					break;
-				case 4:
-					result = result + "할인 미적용";
-					break;
-				case 5:
-					result = result +  "할인 미적용";
-					break;
-				case 6:
-					result = result + "할인 미적용";
-					break;
-				}
+		result = (make_list.get(roundOfOrder).orderdate) + ",";
+		result = result + make_list.get(roundOfOrder).getTicketToString() + ",";
+		result = result + make_list.get(roundOfOrder).getDayTicketToString() + ",";
+		result = result + make_list.get(roundOfOrder).getGenerationToString() + ",";
+		result = result + make_list.get(roundOfOrder).getNum() + "," + make_list.get(roundOfOrder).getTotalPrice() + ",";
+		make_list.get(roundOfOrder).setDisAdvantage(1);
+		result = result + make_list.get(roundOfOrder).getDisAdvantageToString();
 		return result;
 	} 
 	
@@ -229,6 +124,7 @@ public class Writer_CSV {
 		String result = "";
 		// 비할인 티켓 출력
 		if (make_list.get(roundOfOrder).getNum() >= 1) {
+			make_list.get(roundOfOrder).setDisAdvantage(1);
 			result = (make_list.get(roundOfOrder).orderdate) + "," + (make_list.get(roundOfOrder).getTicket()) + "," + (make_list.get(roundOfOrder).getDayTicket()) + ","
 					+ (make_list.get(roundOfOrder).getGeneration()) + ","+ make_list.get(roundOfOrder).getNum() + "," + make_list.get(roundOfOrder).getTotalPrice() + ","
 					+ (make_list.get(roundOfOrder).getDisAdvantage());

@@ -97,6 +97,7 @@ public class Calculate_order {
 	int adjust_advantage(Order_data data_variable){
 		switch(data_variable.getAdvantage()) {
 			case 1://일반 
+				data_variable.setDisAdvantage(1);
 				for (int ticketCount = 1; ticketCount <= data_variable.getQty(); ticketCount++){
 					data_variable.setTotalPrice(data_variable.getTotalPrice() + data_variable.getPrice());
 					data_variable.setNum(data_variable.getNum() + 1);
@@ -106,6 +107,7 @@ public class Calculate_order {
 			case 2 ://장애인 
 				for (int ticketCount = 1; ticketCount <= data_variable.getQty(); ticketCount++){
 					 if (ticketCount > 2){
+						 data_variable.setDisAdvantage(2);
 						 data_variable.setTotalPrice(data_variable.getTotalPrice() + data_variable.getPrice());
 						 data_variable.setNum(data_variable.getNum() + 1);
 					} else {
@@ -118,6 +120,7 @@ public class Calculate_order {
 			case 3 ://국가유공자 
 				for (int ticketCount = 1; ticketCount <= data_variable.getQty(); ticketCount++){
 					 if (ticketCount > 2){
+						 data_variable.setDisAdvantage(3);
 						 data_variable.setTotalPrice(data_variable.getTotalPrice() + data_variable.getPrice());
 						 data_variable.setNum(data_variable.getNum() + 1);
 					} else {
@@ -131,6 +134,7 @@ public class Calculate_order {
 				if (data_variable.getGeneration() >=5){
 					for (int ticketCount = 1; ticketCount <= data_variable.getQty(); ticketCount++){
 						if (ticketCount > 2){
+							data_variable.setDisAdvantage(4);
 							data_variable.setTotalPrice(data_variable.getTotalPrice() + data_variable.getPrice());
 							data_variable.setNum(data_variable.getNum() + 1); 
 						} else {
@@ -151,6 +155,7 @@ public class Calculate_order {
 				if (data_variable.getGender() == Static_data.FEMALE_OLD || data_variable.getGender() == Static_data.FEMALE_NEW){
 					for (int ticketCount = 1; ticketCount <= data_variable.getQty(); ticketCount++){
 						if (ticketCount > 1){
+							data_variable.setDisAdvantage(5);
 							data_variable.setTotalPrice(data_variable.getTotalPrice() + data_variable.getPrice());
 							data_variable.setNum(data_variable.getNum() + 1); 
 						} else {
@@ -174,6 +179,7 @@ public class Calculate_order {
 				numDaDoong = sc.nextInt(); 
 				for (int ticketCount = 1; ticketCount <= data_variable.getQty(); ticketCount++){
 					if (ticketCount > numDaDoong){
+						data_variable.setDisAdvantage(6);
 						data_variable.setTotalPrice(data_variable.getTotalPrice() + data_variable.getPrice());
 						data_variable.setNum(data_variable.getNum() + 1); 
 					} else {

@@ -73,6 +73,16 @@ public class Order_data {
 	public int getTicket() {
 		return ticket;
 	}
+	
+	public String getTicketToString() {
+		if (ticket ==1) {
+			return "종합이용권";
+		} else if(ticket == 2) {
+			return "파크이용권";
+		} else {
+			return "error";
+		}
+	}
 
 	public void setTicket(int ticket) {
 		this.ticket = ticket;
@@ -82,6 +92,16 @@ public class Order_data {
 		return dayTicket;
 	}
 
+	public String getDayTicketToString() {
+		if (dayTicket ==1) {
+			return "1DAY";
+		} else if(dayTicket == 2) {
+			return "AFTER4";
+		} else {
+			return "error";
+		}
+	}
+	
 	public void setDayTicket(int dayTicket) {
 		this.dayTicket = dayTicket;
 	}
@@ -96,6 +116,22 @@ public class Order_data {
 
 	public int getAdvantage() {
 		return advantage;
+	}
+	
+	public String getAdvantageToString() {
+		if (advantage == 2) {
+			return "장애인 우대적용";
+		} else if (advantage == 3) {
+			return "국가유공자 우대적용";
+		} else if (advantage == 4) {
+			return "휴가장병 우대적용";
+		} else if (advantage == 5) {
+			return "임산부 우대적용";
+		} else if (advantage == 6) {
+			return "다둥이 우대적용";
+		} else {
+			return "error";
+		}
 	}
 
 	public void setAdvantage(int advantage) {
@@ -121,6 +157,24 @@ public class Order_data {
 	public int getDisAdvantage() {
 		return disAdvantage;
 	}
+	
+	public String getDisAdvantageToString() {
+		if (disAdvantage == 1) {
+			return "할인 미적용";
+		} else if(disAdvantage == 2) {
+			return "장애인할인 외 일반가격";
+		} else if(disAdvantage == 3) {
+			return "유공자할인 외 일반가격";
+		} else if(disAdvantage == 4) {
+			return "장병할인 외 일반가격";
+		} else if(disAdvantage == 5) {
+			return "임산부할인 외 일반가격";
+		} else if(disAdvantage == 6) {
+			return "다둥이할인 외 일반가격";
+		} else {
+			return "error";
+		}
+	}
 
 	public void setDisAdvantage(int disAdvantage) {
 		this.disAdvantage = disAdvantage;
@@ -128,6 +182,24 @@ public class Order_data {
 
 	public int getGeneration() {
 		return generation;
+	}
+	
+	public String getGenerationToString() {
+		if (generation == 1) {
+			return "신생아";
+		} else if (generation == 2) {
+			return "영유아";
+		} else if (generation == 3) {
+			return "어린이";
+		} else if (generation == 4) {
+			return "청소년";
+		} else if (generation == 5) {
+			return "성인";
+		} else if (generation == 6) {
+			return "만67이상";
+		} else {
+			return "error";
+		}
 	}
 
 	public void setGeneration(int generation) {
@@ -284,6 +356,10 @@ public class Order_data {
 
 	public void setPersonID(String personID) {
 		this.personID = personID;
+		this.year = Integer.parseInt(personID.substring(0, 2));
+		this.month = Integer.parseInt(personID.substring(2, 4));
+		this.date = Integer.parseInt(personID.substring(4, 6));
+		this.gender = Integer.parseInt(personID.substring(6, 7));
 	}
 
 	public int getNor_Date() {
